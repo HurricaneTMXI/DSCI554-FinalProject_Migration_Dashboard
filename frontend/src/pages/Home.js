@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import axios from 'axios';
+import { loadDemographicsData } from '../utils/dataLoader';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import MigrationMap from '../components/MigrationMap/MigrationMap';
@@ -43,8 +43,7 @@ const Home = ({ font, color, fontColor, hoverColor, changeFont, changeBackground
   useEffect(() => {
     const fetchDemographics = async () => {
       try {
-        const response = await axios.get('/api/demographics?quarter=2023-Q4');
-        const data = response.data;
+        const data = await loadDemographicsData('2023-Q4');
         
         // Apply current filters to the demographics data
         const filteredData = filterDemographicsData(data);

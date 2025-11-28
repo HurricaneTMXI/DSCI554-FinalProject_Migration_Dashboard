@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import axios from 'axios';
+import { load3DNetworkData } from '../../utils/dataLoader';
 import './GravityNetwork.css';
 
 const GravityNetwork = ({ filters }) => {
@@ -109,14 +109,7 @@ const GravityNetwork = ({ filters }) => {
   const fetchNetworkData = async () => {
     setLoading(true);
     try {
-      const params = new URLSearchParams({
-        demographic: filters.demographicGroup,
-        ageGroup: filters.ageGroup,
-        occupation: filters.occupation
-      });
-      
-      const response = await axios.get(`/api/3d-network?${params}`);
-      const { nodes, edges } = response.data;
+      const { nodes, edges } = await load3DNetworkData(filters);
       
       visualizeNetwork(nodes, edges);
       setLoading(false);

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
-import axios from 'axios';
+import { loadCausalityData } from '../../utils/dataLoader';
 import './CausalityNetwork.css';
 
 const CausalityNetwork = ({ filters }) => {
@@ -28,19 +28,13 @@ const CausalityNetwork = ({ filters }) => {
     setLoading(true);
     setError(null);
     try {
-      const params = new URLSearchParams({
-        demographic: filters.demographicGroup || 'All Demographics',
-        ageGroup: filters.ageGroup || 'All Ages',
-        occupation: filters.occupation || 'All Occupations'
-      });
+      const data = await loadCausalityData(filters);
       
-      const response = await axios.get(`/api/causality-network?${params}`);
-      
-      if (!response.data || !response.data.events || !response.data.migrationSurges || !response.data.links) {
+      if (!data || !data.events || !data.migrationSurges || !data.links) {
         throw new Error('Invalid data structure');
       }
       
-      setData(response.data);
+      setData(data);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching causality data:', error);

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
-import axios from 'axios';
+import { loadStateData, loadMigrationFlows } from '../../utils/dataLoader';
 import './MigrationMap.css';
 
 const MigrationMap = ({ filters, viewLevel }) => {
@@ -41,14 +41,8 @@ const MigrationMap = ({ filters, viewLevel }) => {
   useEffect(() => {
     const fetchStateData = async () => {
       try {
-        const params = new URLSearchParams({
-          demographic: filters.demographicGroup,
-          ageGroup: filters.ageGroup,
-          occupation: filters.occupation
-        });
-        
-        const response = await axios.get(`/api/state-summary?${params}`);
-        setStateData(response.data);
+        const data = await loadStateData(filters);
+        setStateData(data);
       } catch (error) {
         console.error('Error fetching state data:', error);
       }
@@ -61,22 +55,8 @@ const MigrationMap = ({ filters, viewLevel }) => {
   useEffect(() => {
     const fetchFlows = async () => {
       try {
-        const gender = filters.womenOnly ? 'female' : filters.menOnly ? 'male' : 'all';
-        
-        // Adjust minFlow based on view level
-        const minFlow = viewLevel === 'Nation' ? '5000' : 
-                       viewLevel === 'Individual' ? '500' : '1000';
-        
-        const params = new URLSearchParams({
-          demographic: filters.demographicGroup,
-          ageGroup: filters.ageGroup,
-          occupation: filters.occupation,
-          gender: gender,
-          minFlow: minFlow
-        });
-        
-        const response = await axios.get(`/api/migration-flows?${params}`);
-        setMigrationFlows(response.data);
+        const flows = await loadMigrationFlows(filters, viewLevel);
+        setMigrationFlows(flows);
       } catch (error) {
         console.error('Error fetching migration flows:', error);
       }
