@@ -1,0 +1,94 @@
+.icon-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 20px;
+  overflow: visible;
+}
+
+.icon-with-text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.icon-with-text:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon-text {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 2px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-width: 180px;
+  z-index: 10000;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.dropdown ul li {
+  padding: 12px 20px;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+  white-space: nowrap;
+}
+
+/* Force font inheritance for font dropdown items */
+.dropdown ul li.font-item {
+  font-family: inherit !important;
+}
+
+.dropdown ul li:hover {
+  background-color: #f8f9fa;
+  border-left-color: #3498db;
+  padding-left: 23px;
+}
+
+.dropdown ul li:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdown ul li:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .icon-container {
+    display: none;
+  }
+}

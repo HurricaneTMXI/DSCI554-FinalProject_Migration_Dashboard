@@ -1,0 +1,57 @@
+{
+  "name": "migration-dashboard",
+  "version": "0.1.0",
+  "homepage": "https://HurricaneTMXI.github.io/DSCI554-FinalProject_Migration_Dashboard",
+  "private": true,
+  "proxy": "http://localhost:8000",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.26.1",
+    "bootstrap": "^5.1.3",
+    "chart.js": "^3.9.1",
+    "d3": "^7.8.5",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.1.2",
+    "react-chartjs-2": "^4.3.1",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^6.21.3",
+    "react-scripts": "^5.0.0",
+    "react-scroll": "^1.8.5",
+    "styled-components": "^5.3.3",
+    "three": "^0.150.0",
+    "topojson-client": "^3.1.0",
+    "web-vitals": "^2.1.2"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

@@ -1,0 +1,145 @@
+.filters-container {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filters-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.filter-group {
+  margin-bottom: 16px;
+}
+
+.filter-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #495057;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.filter-select:hover {
+  border-color: #3498db;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checkbox-label span {
+  font-size: 14px;
+  color: #495057;
+}
+
+.filter-section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 24px 0 16px 0;
+  color: #2c3e50;
+  border-top: 1px solid #dee2e6;
+  padding-top: 16px;
+}
+
+.strictness-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.strictness-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #dee2e6;
+  outline: none;
+  cursor: pointer;
+}
+
+.strictness-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #3498db;
+  cursor: pointer;
+}
+
+.strictness-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #3498db;
+  cursor: pointer;
+  border: none;
+}
+
+.strictness-value {
+  font-size: 13px;
+  color: #6c757d;
+  align-self: flex-end;
+}
+
+.filter-note {
+  margin-top: 20px;
+  padding: 12px;
+  background: #e3f2fd;
+  border-left: 3px solid #2196f3;
+  font-size: 12px;
+  color: #1565c0;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .filters-container {
+    padding: 15px;
+  }
+
+  .filters-title {
+    font-size: 16px;
+  }
+
+  .filter-group label {
+    font-size: 13px;
+  }
+
+  .filter-select {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
